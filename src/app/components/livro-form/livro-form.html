@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>{{ isEdit ? 'Editar Livro' : 'Novo Livro' }}</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>
+        Título:
+        <input formControlName="titulo" />
+    </label>
+    <div *ngIf="form.controls['titulo'].invalid && form.controls['titulo'].touched" style="color:red">
+        Título é obrigatório.
+    </div>
+
+    <label>
+        Autor:
+        <input formControlName="autor" />
+    </label>
+    <div *ngIf="form.controls['autor'].invalid && form.controls['autor'].touched" style="color:red">
+        Autor é obrigatório.
+    </div>
+
+    <label>
+        Gênero:
+        <input formControlName="genero" />
+    </label>
+    <div *ngIf="form.controls['genero'].invalid && form.controls['genero'].touched" style="color:red">
+        Gênero é obrigatório.
+    </div>
+
+    <label>
+        Número de Páginas:
+        <input type="number" formControlName="numPaginas" />
+    </label>
+    <div *ngIf="form.controls['numPaginas'].invalid && form.controls['numPaginas'].touched" style="color:red">
+        Número de páginas deve ser maior que zero.
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">{{ isEdit ? 'Salvar' : 'Cadastrar' }}</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+    </form>
+</div>

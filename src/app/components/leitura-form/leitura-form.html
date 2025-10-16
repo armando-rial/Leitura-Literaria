@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>{{ isEdit ? 'Editar Leitura' : 'Nova Leitura' }}</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <label>
+            Livro:
+            <select formControlName="livroId">
+                <option *ngFor="let livro of livros" [ngValue]="livro.id">{{ livro.titulo }}</option>
+            </select>
+        </label>
+        <div *ngIf="form.controls['livroId'].invalid && form.controls['livroId'].touched" style="color:red">
+        Escolha um livro.
+        </div>
+
+        <label>
+            Data Início:
+            <input type="date" formControlName="dataInicio" />
+        </label>
+        <div *ngIf="form.controls['dataInicio'].invalid && form.controls['dataInicio'].touched" style="color:red">
+            Data de início é obrigatória.
+        </div>
+
+        <label>
+            Data Término:
+            <input type="date" formControlName="dataTermino" />
+        </label>
+
+        <label>
+            Status:
+            <select formControlName="status">
+                <option value="em andamento">Em andamento</option>
+                <option value="concluido">Concluído</option>
+            </select>
+        </label>
+
+        <label>
+            Nota Pessoal (0 a 10):
+            <input type="number" formControlName="notaPessoal" min="0" max="10" />
+        </label>
+
+        <button type="submit" [disabled]="form.invalid">{{ isEdit ? 'Salvar' : 'Cadastrar' }}</button>
+        <button type="button" (click)="cancelar()">Cancelar</button>
+    </form>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Tabela de Livros</h2>
+    <div class="mb-3" *ngIf="livros.length > 1">
+        <label for="tituloPesquisa" class="form-label">PESQUISA:</label>
+        <input type="text"
+                [(ngModel)]="tituloPesquisa"
+                id="tituloPesquisa"
+                class="form-control"
+                placeholder="pesquise por título...">
+    </div>
+    <h4 *ngIf="livros.length == 0">
+        Não há livros cadastrados!
+    </h4>
+    <table class="table table-striped" *ngIf="livros.length > 0">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Gênero</th>
+                <th>Páginas</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let livro of livrosFiltrados()">
+                <td>{{ livro.titulo }}</td>
+                <td>{{ livro.autor }}</td>
+                <td>{{ livro.genero }}</td>
+                <td>{{ livro.numPaginas }}</td>
+                <td>
+                    <button (click)="editar(livro.id)">Editar</button>
+                    <button (click)="excluir(livro.id)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex gap-3">
+        <button class="btn btn-success btn-lg" (click)="novoLivro()">Novo Livro</button>
+        <button class="btn btn-primary btn-lg" (click)="voltarHome()">Voltar</button>
+    </div>
+</div>

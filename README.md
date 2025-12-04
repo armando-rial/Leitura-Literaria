@@ -48,4 +48,4 @@ A aplicação contará com os seguintes **requisitos e funcionalidades**:
 | Estilização | Bootstrap |
 | Backend e Banco de Dados | Local Storage |
 | Controle de Versão | Git e GitHub |
-| Gerenciador de Pacotes | npm ou yarn |
+| Gerenciador de Pacotes | npm |

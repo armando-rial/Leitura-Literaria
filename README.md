@@ -44,9 +44,8 @@ A aplicação contará com os seguintes **requisitos e funcionalidades**:
 
 | Camada | Tecnologias / Ferramentas |
 |--------|----------------------------|
-| Frontend | React + TypeScript + Vite |
-| Estilização | Tailwind CSS / CSS Modules |
-| Backend | Node.js + Express (opcional, se houver API própria) |
-| Banco de Dados | SQLite / PostgreSQL / JSON local (dependendo do escopo) |
+| Frontend | Angular + TypeScript |
+| Estilização | Bootstrap |
+| Backend e Banco de Dados | Local Storage |
 | Controle de Versão | Git e GitHub |
 | Gerenciador de Pacotes | npm ou yarn |
